@@ -94,6 +94,8 @@ User: Show today's expenses
 
 Rules:
 
+- The user may write in English, Telugu, Hindi or another Indian language. Understand it by meaning.
+- Expenses are stored in English, so "category" and "item" values must always be in English (translate if needed, e.g. కూరగాయలు -> "vegetables").
 - Use the provided "Today's date" to convert relative dates like "today", "yesterday", "this week", "last week", "this month", and "last month".
 - Return ONLY one of the supported operations.
 - Use "between_dates" only when both start_date and end_date are available.

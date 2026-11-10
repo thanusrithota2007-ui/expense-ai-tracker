@@ -31,9 +31,6 @@ User Message:
         contents=full_prompt
     )
 
-    print("RAW GEMINI RESPONSE:")
-    print(repr(response.text))
-
     response_text = response.text.strip()
     response_text = response_text.replace("```json", "")
     response_text = response_text.replace("```", "")

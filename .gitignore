@@ -1,8 +1,9 @@
+
 # Environment
 .env
 .env.*
 !.env.example
- 
+
 # Python
 __pycache__/
 *.py[cod]
@@ -22,19 +23,19 @@ pip-wheel-metadata/
 .installed.cfg
 lib/
 lib64/
- 
+
 # Virtual environments
 .venv/
 venv/
 ENV/
 env/
- 
+
 # Testing
 .pytest_cache/
 .coverage
 htmlcov/
 .tox/
- 
+
 # IDEs
 .vscode/
 .idea/
@@ -42,16 +43,43 @@ htmlcov/
 *.swp
 *.swo
 .DS_Store
- 
+
 # Logs
 *.log
 logs/
- 
+
 # ngrok
 ngrok.exe
 ngrok
 *.ngrok.yml
- 
-# Misc
+
+# Database and local files
+*.db
+*.sqlite
+*.sqlite3
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+*.rej
+
+# OS files
+Thumbs.db
+Desktop.ini
+
+# Build and cache
+.cache/
+.mypy_cache/
+.ruff_cache/
+
+# Secrets and certificates
 *.pem
 *.key
+*.crt
+
+# Demo recordings - keep the optimised GIF in assets
+recordings/
+*.mp4
+*.mov
+*.webm

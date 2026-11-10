@@ -23,3 +23,11 @@ class Expense(Base):
 
     expense_date = Column(Date, nullable=False)
 
+
+class ProcessedMessage(Base):
+    """WhatsApp messages whose expense writes committed successfully."""
+    __tablename__ = "processed_messages"
+
+    message_id = Column(String(255), primary_key=True)
+    created_at = Column(DateTime(timezone=True), server_default=func.now(), nullable=False)
+

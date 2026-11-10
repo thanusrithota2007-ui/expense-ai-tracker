@@ -7,11 +7,9 @@ from app.utils.formatter import (
 )
 
 
-def process_retrieval(message, db):
+def process_retrieval(message, db, user_id):
 
     query = understand_retrieval(message)
-
-    print("Retrieval Query:", query)
 
     operation = query["operation"]
 
@@ -19,13 +17,14 @@ def process_retrieval(message, db):
 
         # Show all expenses
         "all": lambda: expenses_to_list(
-            crud.get_all_expenses(db)
+            crud.get_all_expenses(db, user_id)
         ),
 
         # Show expenses by category
         "category": lambda: expenses_to_list(
             crud.get_expenses(
                 db=db,
+                user_id=user_id,
                 category=query["category"]
             )
         ),
@@ -35,6 +34,7 @@ def process_retrieval(message, db):
             query,
             crud.get_total(
                 db=db,
+                user_id=user_id,
                 category=query["category"],
                 item=query["item"],
                 start_date=query["start_date"],
@@ -44,18 +44,19 @@ def process_retrieval(message, db):
 
         # Latest expense
         "latest": lambda: single_expense(
-            crud.get_latest_expense(db)
+            crud.get_latest_expense(db, user_id)
         ),
 
         # Highest expense
         "highest": lambda: single_expense(
-            crud.get_highest_expense(db)
+            crud.get_highest_expense(db, user_id)
         ),
 
         # Expenses above amount
         "above_amount": lambda: expenses_to_list(
             crud.get_expenses(
                 db=db,
+                user_id=user_id,
                 amount=query["amount"]
             )
         ),
@@ -64,6 +65,7 @@ def process_retrieval(message, db):
         "between_dates": lambda: expenses_to_list(
             crud.get_expenses(
                 db=db,
+                user_id=user_id,
                 start_date=query["start_date"],
                 end_date=query["end_date"]
             )
@@ -73,6 +75,7 @@ def process_retrieval(message, db):
         "item": lambda: expenses_to_list(
             crud.get_expenses(
                 db=db,
+                user_id=user_id,
                 item=query["item"]
             )
         ),

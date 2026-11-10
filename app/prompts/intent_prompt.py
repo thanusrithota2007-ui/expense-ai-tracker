@@ -17,6 +17,8 @@ Possible intents:
 - help
 - unknown
 
+The message may be in English, Telugu, Hindi or another Indian language (native script or typed in English letters). Classify by meaning, whatever the language.
+
 Examples:
 
 User: Hi
@@ -47,6 +49,21 @@ User: Show all expenses
 User: How much did I spend this month?
 {
     "intent": "retrieval"
+}
+
+User: నేను కూరగాయలకు 250 ఖర్చు చేశాను
+{
+    "intent": "expense"
+}
+
+User: అన్ని ఖర్చులు చూపించు
+{
+    "intent": "retrieval"
+}
+
+User: నమస్తే
+{
+    "intent": "greeting"
 }
 
 User: What can you do?
